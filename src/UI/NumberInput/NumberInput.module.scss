@@ -1,0 +1,37 @@
+.numberInput {
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Inter", sans-serif;
+
+  &__label {
+    font-size: 18px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    all: unset;
+
+    // Hiding default arrows
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    background-color: #0e0e0e;
+    padding: 15px;
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
