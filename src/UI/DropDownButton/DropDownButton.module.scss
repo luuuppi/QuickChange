@@ -1,0 +1,33 @@
+.DropDownButton {
+  cursor: pointer;
+  width: 300px;
+
+  &__label {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #0e0e0e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+
+  &__contentText {
+    display: flex;
+    align-items: center;
+  }
+}
