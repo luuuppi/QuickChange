@@ -4,7 +4,7 @@ import styles from "./IconButton.module.scss";
 
 type IconButtonProps = {
   children: ReactNode;
-  extraStyles: string;
+  extraStyles?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const IconButton: FC<IconButtonProps> = memo(({ children, extraStyles }) => {

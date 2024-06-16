@@ -4,7 +4,7 @@ import styles from "./ListItem.module.scss";
 
 type ListItemProps = {
   children: ReactNode;
-  extraStyles: string;
+  extraStyles?: string;
 };
 
 const ListItem: FC<ListItemProps> = memo(({ children, extraStyles }) => {

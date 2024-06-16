@@ -6,7 +6,7 @@ type DropDownListProps = {
   children: ReactNode;
   changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  extraStyles: string;
+  extraStyles?: string;
 };
 
 const DropDownList: FC<DropDownListProps> = memo((props) => {

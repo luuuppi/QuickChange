@@ -6,7 +6,7 @@ type NumberInputProps = {
   label: string;
   placehodler?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  extraStyles: string;
+  extraStyles?: string;
 };
 
 const NumberInput: FC<NumberInputProps> = memo((props) => {
