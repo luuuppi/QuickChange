@@ -1,5 +1,6 @@
 import { FC, ReactNode, memo, useCallback, useState } from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 import iconUrl from "../../static/arrow.svg";
 import styles from "./DropDownButton.module.scss";
 
@@ -7,9 +8,12 @@ type DropDownButtonProps = {
   label: string;
   children: ReactNode;
   onClick: () => void;
+  extraStyles?: string;
 };
 
-const DropDownButton: FC<DropDownButtonProps> = memo(({ label, children, onClick }) => {
+const DropDownButton: FC<DropDownButtonProps> = memo((props) => {
+  const { label, children, onClick, extraStyles } = props;
+  const style: string = clsx(styles.DropDownButton, extraStyles || "");
   const [rotate, setRotate] = useState<number>(0);
 
   const clickHandler = useCallback(() => {
@@ -18,7 +22,7 @@ const DropDownButton: FC<DropDownButtonProps> = memo(({ label, children, onClick
   }, [onClick]);
 
   return (
-    <div className={styles.DropDownButton} onClick={clickHandler}>
+    <div className={style} onClick={clickHandler}>
       <span className={styles.DropDownButton__label}>{label}</span>
       <div className={styles.DropDownButton__content}>
         <span className={styles.DropDownButton__contentText}>{children}</span>
