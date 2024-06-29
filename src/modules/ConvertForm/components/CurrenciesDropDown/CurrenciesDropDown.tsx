@@ -13,18 +13,13 @@ import styles from "./CurrenciesDropDown.module.scss";
 type CurrenciesDropDownProps = {
   label: string;
   type: "from" | "to";
+  currentCurrency: TCurrencyInfo;
 };
 
-const defaultCurrency: TCurrencyInfo = {
-  country: "us",
-  name: "US dollar",
-  symbol: "USD",
-};
-
-const CurrenciesDropDown: FC<CurrenciesDropDownProps> = memo(({ label, type }) => {
+const CurrenciesDropDown: FC<CurrenciesDropDownProps> = memo((props) => {
+  const { label, type, currentCurrency } = props;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [currentCurrency, setCurrentCurrency] = useState<TCurrencyInfo>(defaultCurrency);
   const setCurrency = useConvertStore((state) => state.setCurrency);
   const { data: currencies } = useQuery({
     queryKey: ["currencies"],
@@ -39,12 +34,13 @@ const CurrenciesDropDown: FC<CurrenciesDropDownProps> = memo(({ label, type }) =
   }, []);
 
   const selectCurrency = (item: string) => {
-    setCurrentCurrency(() => ({
+    const current = {
       country: currencies[item].countries[0].substring(0, 2).toLowerCase(),
       name: currencies[item].name_plural,
       symbol: currencies[item].code,
-    }));
-    setCurrency(currencies[item].code, type);
+    };
+
+    setCurrency(current, type);
     setSearchValue("");
     toggleDropDown();
   };

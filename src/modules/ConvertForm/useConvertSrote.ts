@@ -1,19 +1,20 @@
 import { create } from "zustand";
+import { TCurrencyInfo } from "./types/TCurrencyInfo";
 
 type ConvertState = {
-  from: string;
-  to: string;
-  setCurrency: (code: string, type: "from" | "to") => void;
+  from: TCurrencyInfo;
+  to: TCurrencyInfo;
+  setCurrency: (currencyInfo: TCurrencyInfo, type: "from" | "to") => void;
 };
 
-const useConvertStore = create<ConvertState>()((set) => ({
-  from: "",
-  to: "",
-  setCurrency: (code, type) => {
+const useConvertStore = create<ConvertState>((set) => ({
+  from: { country: "US", name: "US Dollars", symbol: "USD" },
+  to: { country: "EU", name: "Euros", symbol: "EUR" },
+  setCurrency: (currencyInfo, type) => {
     if (type === "from") {
-      set({ from: code });
+      set({ from: currencyInfo });
     } else {
-      set({ to: code });
+      set({ to: currencyInfo });
     }
   },
 }));
