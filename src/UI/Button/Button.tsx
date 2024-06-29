@@ -7,10 +7,14 @@ type ButtonProps = {
   extraStyles?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = memo(({ children, extraStyles }) => {
+const Button: FC<ButtonProps> = memo(({ children, extraStyles, onClick }) => {
   const style: string = clsx(styles.button, extraStyles || "");
 
-  return <button className={style}>{children}</button>;
+  return (
+    <button className={style} onClick={onClick}>
+      {children}
+    </button>
+  );
 });
 
 export default Button;

@@ -7,10 +7,14 @@ type IconButtonProps = {
   extraStyles?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const IconButton: FC<IconButtonProps> = memo(({ children, extraStyles }) => {
+const IconButton: FC<IconButtonProps> = memo(({ children, extraStyles, onClick }) => {
   const style: string = clsx(styles.iconButton, extraStyles || "");
 
-  return <button className={style}>{children}</button>;
+  return (
+    <button className={style} onClick={onClick}>
+      {children}
+    </button>
+  );
 });
 
 export default IconButton;
