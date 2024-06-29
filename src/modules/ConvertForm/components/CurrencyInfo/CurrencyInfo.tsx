@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import type { TCurrencyInfo } from "../../types/TCurrencyInfo";
+import type TCurrencyInfo from "../../types/TCurrencyInfo";
 import styles from "./CurrencyInfo.module.scss";
 
 const CurrencyInfo: FC<TCurrencyInfo> = memo(({ country, symbol, name }) => {

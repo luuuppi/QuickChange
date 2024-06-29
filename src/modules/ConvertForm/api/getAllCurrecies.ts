@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TCurrencies } from "../types/TCurrencies";
+import type TCurrencies from "../types/TCurrencies";
 
 type TCurrenciesAPI = {
   data: TCurrencies;

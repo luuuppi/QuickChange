@@ -3,7 +3,7 @@ import useConvertStore from "../../useConvertSrote";
 import searchCurrencies from "../../utils/searchCurrencies";
 import getAllCurrencies from "../../api/getAllCurrecies";
 import { useQuery } from "@tanstack/react-query";
-import type { TCurrencyInfo } from "../../types/TCurrencyInfo";
+import type TCurrencyInfo from "../../types/TCurrencyInfo";
 import DropDownButton from "../../../../UI/DropDownButton/DropDownButton";
 import CurrencyInfo from "../CurrencyInfo/CurrencyInfo";
 import DropDownList from "../../../../UI/DropDownList/DropDownList";
