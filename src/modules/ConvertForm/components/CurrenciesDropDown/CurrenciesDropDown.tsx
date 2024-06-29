@@ -63,7 +63,7 @@ const CurrenciesDropDown: FC<CurrenciesDropDownProps> = memo((props) => {
         />
       </DropDownButton>
       {isOpen && (
-        <DropDownList changeHandler={searchHandler}>
+        <DropDownList extraStyles={styles.dropDownList} changeHandler={searchHandler}>
           {searchedCurrencies.map(
             (item, i) =>
               currencies[item].countries[0] && (
