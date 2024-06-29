@@ -51,11 +51,7 @@ const CurrenciesDropDown: FC<CurrenciesDropDownProps> = memo((props) => {
 
   return (
     <div>
-      <DropDownButton
-        extraStyles={styles.dropDownButton}
-        label={label}
-        onClick={toggleDropDown}
-      >
+      <DropDownButton label={label} onClick={toggleDropDown}>
         <CurrencyInfo
           country={currentCurrency.country.toLowerCase()}
           name={currentCurrency.name}
