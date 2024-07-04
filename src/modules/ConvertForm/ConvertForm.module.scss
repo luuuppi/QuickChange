@@ -1,0 +1,10 @@
+.convertFrom {
+  display: flex;
+  gap: 25px;
+  align-items: end;
+  justify-content: center;
+
+  &__switchButton {
+    margin-bottom: 7px;
+  }
+}
