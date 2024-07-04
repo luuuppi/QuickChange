@@ -1,5 +1,4 @@
 .DropDownButton {
-  cursor: pointer;
   width: 300px;
 
   &__label {
@@ -12,6 +11,7 @@
   }
 
   &__content {
+    cursor: pointer;
     padding: 15px;
     border-radius: 10px;
     background-color: #0e0e0e;
