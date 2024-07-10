@@ -1,8 +1,7 @@
 .convertFrom {
   display: flex;
-  gap: 25px;
   align-items: end;
-  justify-content: center;
+  justify-content: space-between;
 
   &__switchButton {
     margin-bottom: 7px;
