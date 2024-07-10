@@ -11,7 +11,7 @@ type ConvertState = {
 };
 
 const useConvertStore = create<ConvertState>((set, get) => ({
-  value: "",
+  value: "0",
   setValue: (value) => {
     set({ value });
   },
