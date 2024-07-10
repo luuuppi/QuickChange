@@ -1,12 +1,12 @@
 import { FC } from "react";
 import CurrenciesDropDown from "./components/CurrenciesDropDown/CurrenciesDropDown";
-import useConvertStore from "./useConvertSrote";
+import useConvertStore from "./useConvertStore";
 import IconButton from "../../UI/IconButton/IconButton";
 import switchIcon from "./static/swap-icon.svg";
 import NumberInput from "../../UI/NumberInput/NumberInput";
 import styles from "./ConvertForm.module.scss";
 
-const ConverForm: FC = () => {
+const ConvertForm: FC = () => {
   const from = useConvertStore((state) => state.from);
   const to = useConvertStore((state) => state.to);
   const switchCurrencies = useConvertStore((state) => state.switchCurrencies);
@@ -33,4 +33,4 @@ const ConverForm: FC = () => {
   );
 };
 
-export default ConverForm;
+export default ConvertForm;

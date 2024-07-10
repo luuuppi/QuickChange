@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, memo, useCallback, useState } from "react";
-import useConvertStore from "../../useConvertSrote";
+import useConvertStore from "../../useConvertStore";
 import searchCurrencies from "../../utils/searchCurrencies";
-import getAllCurrencies from "../../api/getAllCurrecies";
+import getAllCurrencies from "../../api/getAllCurrencies";
 import { useQuery } from "@tanstack/react-query";
 import type TCurrencyInfo from "../../types/TCurrencyInfo";
 import DropDownButton from "../../../../UI/DropDownButton/DropDownButton";

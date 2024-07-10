@@ -1,4 +1,4 @@
-import ConverForm from "./ConverForm";
-import useConvertStore from "./useConvertSrote";
+import ConvertForm from "./ConvertForm";
+import useConvertStore from "./useConvertStore";
 
-export { ConverForm, useConvertStore };
+export { ConvertForm, useConvertStore };

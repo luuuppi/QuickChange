@@ -6,7 +6,7 @@ type TCurrenciesAPI = {
 };
 
 const getAllCurrencies = async () => {
-  const responce = await axios.get<TCurrenciesAPI>(
+  const response = await axios.get<TCurrenciesAPI>(
     "https://api.currencyapi.com/v3/currencies/",
     {
       headers: {
@@ -18,7 +18,7 @@ const getAllCurrencies = async () => {
     }
   );
 
-  return responce.data.data;
+  return response.data.data;
 };
 
 export default getAllCurrencies;
