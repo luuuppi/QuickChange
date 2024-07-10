@@ -1,0 +1,32 @@
+.convertDisplay {
+  display: flex;
+  margin-top: 40px;
+
+  &[data-open="true"] {
+    justify-content: start;
+  }
+
+  &[data-open="false"] {
+    justify-content: end;
+  }
+
+  &__result {
+    & > * {
+      display: block;
+    }
+
+    & > span:first-child {
+      margin-bottom: 10px;
+
+      font-size: 18px;
+      font-weight: 550;
+      color: #959595;
+    }
+
+    & > span:last-child {
+      font-size: 30px;
+      font-weight: 550;
+      color: #ffffff;
+    }
+  }
+}
