@@ -1,0 +1,106 @@
+.select {
+  &__label {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &Button {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: #0e0e0e;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 10px;
+    margin-top: 10px;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0a0a0a;
+    }
+
+    &__leadingIcon {
+      width: 32px;
+      height: 23px;
+      border-radius: 5px;
+      margin: 15px 10px 15px 15px;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &__icon {
+      margin-left: auto;
+      margin-right: 10px;
+    }
+  }
+
+  &Menu {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    margin-top: 5px;
+    background-color: #0e0e0e;
+    border-radius: 10px;
+    transform-origin: top center; // For framer motion
+
+    &__search {
+      all: unset;
+
+      padding: 8px;
+      margin: 15px;
+      border-radius: 5px;
+      background-color: #171717;
+
+      font-size: 16px;
+      font-weight: 500;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    &__list {
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #353535 #171717;
+
+      & > li {
+        margin: 0px 5px 5px 5px;
+
+        &:last-child {
+          margin: 0px 5px;
+        }
+      }
+    }
+  }
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(217, 217, 217, 0.35);
+  }
+
+  &__leadingIcon {
+    width: 32px;
+    height: 23px;
+    border-radius: 5px;
+    margin: 12px 10px 12px 12px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

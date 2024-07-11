@@ -1,5 +1,5 @@
 import { FC } from "react";
-import CurrenciesDropDown from "./components/CurrenciesDropDown/CurrenciesDropDown";
+import CurrenciesSelect from "./components/CurrenciesSelect/CurrenciesSelect";
 import useConvertStore from "./useConvertStore";
 import IconButton from "../../UI/IconButton/IconButton";
 import switchIcon from "./static/swap-icon.svg";
@@ -21,14 +21,14 @@ const ConvertForm: FC = () => {
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <CurrenciesDropDown label="From" type="from" currentCurrency={from} />
+      <CurrenciesSelect type="from" currentCurrency={from} />
       <IconButton
         extraStyles={styles.convertFrom__switchButton}
         onClick={switchCurrencies}
       >
         <img src={switchIcon} alt="Switch currencies" />
       </IconButton>
-      <CurrenciesDropDown label="To" type="to" currentCurrency={to} />
+      <CurrenciesSelect type="to" currentCurrency={to} />
     </div>
   );
 };
