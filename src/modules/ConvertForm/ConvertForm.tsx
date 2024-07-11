@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ChangeEvent, FC, useCallback } from "react";
 import CurrenciesSelect from "./components/CurrenciesSelect/CurrenciesSelect";
 import useConvertStore from "./useConvertStore";
 import IconButton from "../../UI/IconButton/IconButton";
@@ -13,12 +13,16 @@ const ConvertForm: FC = () => {
   const value = useConvertStore((state) => state.value);
   const setValue = useConvertStore((state) => state.setValue);
 
+  const changeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  }, []);
+
   return (
     <div className={styles.convertFrom}>
       <NumberInput
         label="Amount"
         placehodler="Enter amount..."
-        onChange={(e) => setValue(e.target.value)}
+        onChange={changeHandler}
         value={value}
       />
       <CurrenciesSelect type="from" currentCurrency={from} />
