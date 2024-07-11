@@ -4,14 +4,14 @@ import styles from "./NumberInput.module.scss";
 
 type NumberInputProps = {
   label: string;
-  placehodler?: string;
+  placeholder?: string;
   extraStyles?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const NumberInput: FC<NumberInputProps> = memo((props) => {
-  const { label, placehodler, extraStyles, onChange, value } = props;
+  const { label, placeholder, extraStyles, onChange, value } = props;
   const style: string = clsx(styles.numberInput, extraStyles || "");
-  const placehodlerCond: string | undefined = placehodler ? placehodler : undefined;
+  const placeholderCond: string | undefined = placeholder ? placeholder : undefined;
 
   return (
     <form className={style}>
@@ -19,7 +19,7 @@ const NumberInput: FC<NumberInputProps> = memo((props) => {
       <input
         className={styles.numberInput__input}
         type="number"
-        placeholder={placehodlerCond}
+        placeholder={placeholderCond}
         value={value}
         onChange={onChange}
       />

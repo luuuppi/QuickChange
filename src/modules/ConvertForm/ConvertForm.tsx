@@ -21,7 +21,7 @@ const ConvertForm: FC = () => {
     <div className={styles.convertFrom}>
       <NumberInput
         label="Amount"
-        placehodler="Enter amount..."
+        placeholder="Enter amount..."
         onChange={changeHandler}
         value={value}
       />
