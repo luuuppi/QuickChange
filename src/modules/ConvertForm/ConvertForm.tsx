@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useCallback } from "react";
 import CurrenciesSelect from "./components/CurrenciesSelect/CurrenciesSelect";
 import useConvertStore from "./useConvertStore";
-import IconButton from "../../UI/IconButton/IconButton";
+import Button from "../../UI/Button/Button";
 import switchIcon from "./static/swap-icon.svg";
 import NumberInput from "../../UI/NumberInput/NumberInput";
 import styles from "./ConvertForm.module.scss";
@@ -26,12 +26,14 @@ const ConvertForm: FC = () => {
         value={value}
       />
       <CurrenciesSelect type="from" currentCurrency={from} />
-      <IconButton
-        extraStyles={styles.convertFrom__switchButton}
+      <Button
+        size="icon"
+        state="secondary"
+        className={styles.convertFrom__switchButton}
         onClick={switchCurrencies}
       >
         <img src={switchIcon} alt="Switch currencies" />
-      </IconButton>
+      </Button>
       <CurrenciesSelect type="to" currentCurrency={to} />
     </div>
   );
