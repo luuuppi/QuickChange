@@ -16,7 +16,6 @@ const ConvertDisplay: FC = () => {
     initialData: { meta: { lastUpdated: "" }, data: {} },
     queryFn: () => getExchangeRates(from.symbol, to.symbol),
     refetchOnWindowFocus: false,
-    enabled: false,
   });
   const convertedValue =
     !isFetching && convert(rate.data[to.symbol].value, parseInt(value));
