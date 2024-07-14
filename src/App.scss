@@ -18,4 +18,8 @@ main {
   margin: 0 15px;
   padding: 50px;
   border-radius: 25px;
+
+  @media screen and (max-width: 768px) {
+    padding: 25px;
+  }
 }
