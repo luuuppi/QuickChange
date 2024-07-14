@@ -1,11 +1,14 @@
 .select {
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+
   &__label {
     font-size: 18px;
     font-weight: 600;
   }
 
   &Button {
-    width: 300px;
     display: flex;
     align-items: center;
     background-color: #0e0e0e;
@@ -40,9 +43,10 @@
   &Menu {
     display: flex;
     flex-direction: column;
-    width: 300px;
     height: 300px;
+    width: 100%;
     position: absolute;
+    z-index: 10;
     margin-top: 5px;
     background-color: #0e0e0e;
     border-radius: 10px;

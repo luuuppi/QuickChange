@@ -1,7 +1,8 @@
 .numberInput {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  min-width: 300px;
 
   font-family: "Inter", sans-serif;
 
