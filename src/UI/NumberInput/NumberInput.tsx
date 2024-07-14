@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, memo } from "react";
+import { FC, InputHTMLAttributes, memo, useCallback, useRef } from "react";
 import clsx from "clsx";
 import styles from "./NumberInput.module.scss";
 
@@ -12,6 +12,11 @@ const NumberInput: FC<NumberInputProps> = memo((props) => {
   const { label, placeholder, extraStyles, onChange, value } = props;
   const style: string = clsx(styles.numberInput, extraStyles || "");
   const placeholderCond: string | undefined = placeholder ? placeholder : undefined;
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const onFocus = useCallback(() => {
+    inputRef.current?.select();
+  }, []);
 
   return (
     <form className={style}>
@@ -22,6 +27,8 @@ const NumberInput: FC<NumberInputProps> = memo((props) => {
         placeholder={placeholderCond}
         value={value}
         onChange={onChange}
+        onFocus={onFocus}
+        ref={inputRef}
       />
     </form>
   );
