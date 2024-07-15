@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC, memo, ReactNode } from "react";
+import { motion } from "framer-motion";
 import { cva, type VariantProps } from "class-variance-authority";
 import styles from "./Button.module.scss";
 
@@ -27,9 +28,13 @@ type ButtonProps = {
 
 const Button: FC<ButtonProps> = memo(({ children, onClick, state, size, className }) => {
   return (
-    <button className={buttonVariants({ state, size, className })} onClick={onClick}>
+    <motion.button
+      className={buttonVariants({ state, size, className })}
+      onClick={onClick}
+      whileTap={{ scale: 0.9 }}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 });
 
