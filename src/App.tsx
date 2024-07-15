@@ -1,10 +1,13 @@
 import { FC } from "react";
+import { ConvertForm } from "./modules/ConvertForm";
+import ConvertDisplay from "./modules/ConvertDisplay";
 import "./App.scss";
 
 const App: FC = () => {
   return (
     <main>
-      <h1>Hello world!</h1>
+      <ConvertForm />
+      <ConvertDisplay />
     </main>
   );
 };

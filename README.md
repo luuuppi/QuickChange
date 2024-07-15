@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# 💱 QuickChange - convert currencies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+QuickChange is a simple currency converter thats provides easy way for currency conversion.
 
-Currently, two official plugins are available:
+The application was created with the ability to scale, which is represented by a modular architecture and well defined reusable components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ⭐ Main features of the QuickChange:
 
-## Expanding the ESLint configuration
+- Search by currencies and choose one
+- Enter the amount of money you want to convert
+- See the converted value
+- Smooth animations
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 📝‍ What i learned?
 
-- Configure the top-level `parserOptions` property like this:
+By creating the QuickChange, i learned in practice how to integrate a simple modular architecture into React applications, improved my practical skills in creating reusable UI components, learned how to link the application to the API via Tanstack Query (React Query), practiced creating an adaptive interface in pure CSS using the SCSS preprocessor and learned how to create smooth animations using Framer Motion.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+## 🔧 Technologies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- TypeScript
+- React
+- SCSS
+- Framer Motion
+- Vite
+
+## 🏃 Running the project locally
+
+To tun the project on your computer, follow this steps:
+
+- Clone the repo on your computer
+- Run `npm i` in project folder to install required dependencies
+- Get the API key [here](https://currencyapi.com/)
+- Setup the `env.example` with your API key, then remove ".example" from file name
+- Run `npm run dev` to run the dev mode or run `npm build && npm run preview` to run production-like app
+- Go to the [localhost](http://localhost:5173) and enjoy!
