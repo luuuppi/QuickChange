@@ -18,18 +18,48 @@ type SelectProps = {
 };
 
 const menuAnimation: Variants = {
-  initial: { scale: 0, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: { type: "spring", duration: 0.4, delay: 0.15 },
+  open: {
+    clipPath: "inset(0% 0% 0% 0% round 10px)",
+    transition: {
+      type: "spring",
+      duration: 0.6,
+      bounce: 0,
+      delayChildren: 0.4,
+      staggerChildren: 0.05,
+    },
   },
-  exit: { scale: 0, opacity: 0 },
+  closed: {
+    clipPath: "inset(10% 50% 90% 50% round 10px)",
+    transition: {
+      type: "spring",
+      duration: 0.3,
+      bounce: 0,
+    },
+  },
+};
+
+const menuItemAnimation: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 24,
+    },
+  },
+  closed: {
+    opacity: 0,
+    y: 20,
+    transition: {
+      duration: 0.2,
+    },
+  },
 };
 
 const SelectItem: FC<SelectItemProps> = memo(({ children, leadingIcon, onClick }) => {
   return (
-    <li className={styles.selectItem} onClick={onClick}>
+    <motion.li className={styles.selectItem} onClick={onClick} whileTap={{ scale: 0.97 }}>
       {leadingIcon && (
         <img
           src={leadingIcon}
@@ -38,7 +68,7 @@ const SelectItem: FC<SelectItemProps> = memo(({ children, leadingIcon, onClick }
         />
       )}
       <span className={styles.selectItem__text}>{children}</span>
-    </li>
+    </motion.li>
   );
 });
 
@@ -75,7 +105,12 @@ const Select: FC<SelectProps> = memo(
     return (
       <div className={styles.select}>
         <span className={styles.select__label}>{label}</span>
-        <div className={styles.selectButton} onClick={toggleList} ref={buttonRef}>
+        <motion.div
+          className={styles.selectButton}
+          onClick={toggleList}
+          ref={buttonRef}
+          whileTap={{ scale: 0.97 }}
+        >
           {leadingIcon && (
             <img src={leadingIcon} className={styles.selectButton__leadingIcon} />
           )}
@@ -86,24 +121,27 @@ const Select: FC<SelectProps> = memo(
             animate={{ rotate }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
           />
-        </div>
+        </motion.div>
         <AnimatePresence>
           {isOpen && (
             <motion.div
               className={styles.selectMenu}
               variants={menuAnimation}
-              initial="initial"
-              animate="visible"
-              exit="exit"
+              initial="closed"
+              animate="open"
+              exit="closed"
             >
-              <input
+              <motion.input
                 type="text"
                 placeholder="Search..."
                 className={styles.selectMenu__search}
                 ref={inputRef}
                 onChange={onChange}
+                variants={menuItemAnimation}
               />
-              <ul className={styles.selectMenu__list}>{children}</ul>
+              <motion.ul className={styles.selectMenu__list} variants={menuItemAnimation}>
+                {children}
+              </motion.ul>
             </motion.div>
           )}
         </AnimatePresence>
