@@ -15,6 +15,7 @@
     transition: background-color 0.2s ease-in-out;
     border-radius: 10px;
     margin-top: 10px;
+    padding: 12px 10px 11px 15px;
 
     cursor: pointer;
 
@@ -26,7 +27,7 @@
       width: 32px;
       height: 23px;
       border-radius: 5px;
-      margin: 15px 10px 15px 15px;
+      margin-right: 10px;
     }
 
     &__text {
@@ -89,6 +90,7 @@
   align-items: center;
   border-radius: 10px;
   transition: background-color 0.2s ease-in-out;
+  padding: 12px 10px 12px 12px;
 
   cursor: pointer;
 
@@ -100,7 +102,7 @@
     width: 32px;
     height: 23px;
     border-radius: 5px;
-    margin: 12px 10px 12px 12px;
+    margin-right: 10px;
   }
 
   &__text {
