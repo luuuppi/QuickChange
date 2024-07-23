@@ -18,10 +18,12 @@ const ConvertDisplay: FC = () => {
     queryFn: () => getExchangeRates(from.symbol, to.symbol),
     refetchOnWindowFocus: false,
   });
-  const convertedValue =
-    !isFetching && convert(rate.data[to.symbol].value, parseInt(value));
-  const lastUpdatedDate =
-    !isFetching && format(rate.meta.last_updated_at, "MMM dd, y, kk:mm O");
+  const convertedValue = !isFetching
+    ? convert(rate.data[to.symbol].value, parseInt(value))
+    : undefined;
+  const lastUpdatedDate = !isFetching
+    ? format(rate.meta.last_updated_at, "MMM dd, y, kk:mm O")
+    : undefined;
 
   const clickHandler = useCallback(() => {
     setIsOpen((prev) => !prev);
