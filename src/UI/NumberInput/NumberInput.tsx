@@ -19,7 +19,7 @@ const NumberInput: FC<NumberInputProps> = memo((props) => {
   }, []);
 
   return (
-    <form className={style}>
+    <form className={style} onSubmit={(e) => e.preventDefault()}>
       <label className={styles.numberInput__label}>{label}</label>
       <input
         className={styles.numberInput__input}
