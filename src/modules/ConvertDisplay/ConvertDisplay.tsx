@@ -5,6 +5,7 @@ import getExchangeRates from "./api/getExchangeRates";
 import { format } from "date-fns";
 import convert from "./utils/convert";
 import Button from "../../UI/Button/Button";
+import MotionNumber from "../../UI/MotionNumber/MotionNumber";
 import styles from "./ConvertDisplay.module.scss";
 
 const ConvertDisplay: FC = () => {
@@ -39,10 +40,11 @@ const ConvertDisplay: FC = () => {
         <>
           <span className={styles.convertDisplay__result}>
             <span>
-              {value} {from.name} =
+              <MotionNumber value={parseInt(value)} state="secondary" size="sm" rounded />{" "}
+              {from.name} =
             </span>
             <span>
-              {convertedValue} {to.name}
+              <MotionNumber value={parseInt(convertedValue ?? "")} /> {to.name}
             </span>
           </span>
           <span className={styles.convertDisplay__lastUpdated}>
