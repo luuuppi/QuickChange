@@ -2,6 +2,7 @@ import { FC, useCallback, useState } from "react";
 import { useConvertStore } from "../ConvertForm";
 import { useQuery } from "@tanstack/react-query";
 import getExchangeRates from "./api/getExchangeRates";
+import { format } from "date-fns";
 import convert from "./utils/convert";
 import Button from "../../UI/Button/Button";
 import styles from "./ConvertDisplay.module.scss";
@@ -13,12 +14,14 @@ const ConvertDisplay: FC = () => {
   const value = useConvertStore((state) => state.value);
   const { data: rate, isFetching } = useQuery({
     queryKey: ["Exchange", from.symbol, to.symbol],
-    initialData: { meta: { lastUpdated: "" }, data: {} },
+    initialData: { meta: { last_updated_at: "" }, data: {} },
     queryFn: () => getExchangeRates(from.symbol, to.symbol),
     refetchOnWindowFocus: false,
   });
   const convertedValue =
     !isFetching && convert(rate.data[to.symbol].value, parseInt(value));
+  const lastUpdatedDate =
+    !isFetching && format(rate.meta.last_updated_at, "MMM dd, y, kk:mm O");
 
   const clickHandler = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -31,14 +34,19 @@ const ConvertDisplay: FC = () => {
           Convert
         </Button>
       ) : (
-        <span className={styles.convertDisplay__result}>
-          <span>
-            {value} {from.name} =
+        <>
+          <span className={styles.convertDisplay__result}>
+            <span>
+              {value} {from.name} =
+            </span>
+            <span>
+              {convertedValue} {to.name}
+            </span>
           </span>
-          <span>
-            {convertedValue} {to.name}
+          <span className={styles.convertDisplay__lastUpdated}>
+            Last updated on {lastUpdatedDate}
           </span>
-        </span>
+        </>
       )}
     </div>
   );
