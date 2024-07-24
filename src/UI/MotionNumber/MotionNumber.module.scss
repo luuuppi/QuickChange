@@ -1,0 +1,23 @@
+.motionNumber {
+  font-weight: 600;
+
+  &--primary {
+    color: #ffffff;
+  }
+
+  &--secondary {
+    color: #959595;
+  }
+
+  &--darker {
+    color: #505050;
+  }
+
+  &--md {
+    font-size: 30px;
+  }
+
+  &--sm {
+    font-size: 18px;
+  }
+}

@@ -3,7 +3,7 @@
   margin-top: 40px;
 
   &[data-open="true"] {
-    justify-content: start;
+    justify-content: space-between;
   }
 
   &[data-open="false"] {
@@ -30,9 +30,26 @@
     }
   }
 
+  &__lastUpdated {
+    align-self: end;
+
+    font-size: 13px;
+    font-weight: 300;
+    color: #959595;
+  }
+
   @media screen and (max-width: 1100px) {
     &[data-open="false"] {
       justify-content: center;
+    }
+
+    &[data-open="true"] {
+      flex-direction: column;
+    }
+
+    &__lastUpdated {
+      margin-top: 40px;
+      align-self: center;
     }
   }
 }

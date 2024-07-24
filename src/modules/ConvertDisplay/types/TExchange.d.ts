@@ -2,7 +2,7 @@ import TRate from "./TRate";
 
 type TExchange = {
   meta: {
-    lastUpdated: string;
+    last_updated_at: string;
   };
   data: {
     [key: string]: TRate;
